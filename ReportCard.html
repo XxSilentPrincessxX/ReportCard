@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+        }
+
+        body {
+            background-image: url(https://media.istockphoto.com/photos/protective-face-masks-and-hand-sanitizers-on-the-desks-according-to-picture-id1290836478?b=1&k=20&m=1290836478&s=170667a&w=0&h=0mSiIar9Tx7B8W9sVbMDGVNPuphwHkbQC3Ll8REIZjw=);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 900px;
+            flex-direction: column;
+
+        }
+
+        table {
+            margin: 100px;
+            height: 150px;
+            width: 500px;
+            background-color: white;
+        }
+
+        button {
+            height: 35px;
+            width: 85px;
+            background-color: black;
+            color: white;
+        }
+
+        input {
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th rowspan="2">Name</th>
+                <th colspan="4">Score</th>
+            </tr>
+            <tr>
+                <th>English</th>
+                <th>Math</th>
+                <th>Spanish</th>
+                <th>History</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id="name"></td>
+                <td><input type="text" name="" id="english"></td>
+                <td><input type="text" name="" id="math"></td>
+                <td><input type="text" name="" id="spanish"></td>
+                <td><input type="text" name="" id="history"></td>
+            </tr>
+        </table>
+        <button onclick="cal()">Submit</button>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Percantage</th>
+                <th>Grade</th>
+                <th>Pass/Fail</th>
+            </tr>
+            <tr>
+                <td><span id="outname"></span></td>
+                <td><span id="outper"></span></td>
+                <td><span id="outgrade"></span></td>
+                <td><span id="outpf"></span></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function cal() {
+            //taking values from input table and storing inside variables
+            var name = document.getElementById("name").value;
+            var eng = document.getElementById("english").value;
+            var math = document.getElementById("math").value;
+            var span = document.getElementById("spanish").value;
+            var his = document.getElementById("history").value;
+            //conveting marks values onto Integers
+            eng = parseInt(eng)
+            math = parseInt(math)
+            span = parseInt(span)
+            his = parseInt(his)
+            //displaying name in output table
+            document.getElementById("outname").innerHTML = name;
+
+            //calculating the percantage 
+            var percent = ((eng + math + span + his) / 400) * 100;
+
+            //displaying the percentage 
+            document.getElementById("outper").innerHTML = percent;
+
+            //Grade
+            if (percent >= 80 && percent <= 100) {
+                document.getElementById("outgrade").innerHTML = "A";
+                document.getElementById("outpf").innerHTML = "Pass";
+            }
+            else if (percent >= 60 && percent < 80) {
+                document.getElementById("outgrade").innerHTML = "B";
+                document.getElementById("outpf").innerHTML = "Pass";
+            }
+            else if (percent >= 40 && percent < 60) {
+                document.getElementById("outgrade").innerHTML = "C";
+                document.getElementById("outpf").innerHTML = "Pass";
+            }
+            else {
+                document.getElementById("outgrade").innerHTML = "F";
+                document.getElementById("outpf").innerHTML = "Fail";
+            }
+        }
+    </script>
+</body>
+
+</html>
+<!--
+
+    Homework 18 OCt
+    1) give report card a background color and bring tables at proper positions and revice whatever done today.
+-->
